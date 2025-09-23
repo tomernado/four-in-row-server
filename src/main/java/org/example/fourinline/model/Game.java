@@ -35,25 +35,26 @@ public class Game
         this.nextTurn = 'R';
         this.winner = null;
     }
+    public void addSecondPlayer(String secondPlayerId)
+    {
+        if ( this.p2 != null)
+        {
+            throw new IllegalStateException("Second player already set");
+        }
+        if (this.p1 != null && this.p1.id.equals(secondPlayerId))
+        {
+            throw new IllegalStateException("Same player cannot join twice");
+        }
+        this.p2 = new Player(secondPlayerId, 'Y');
+    }
+
+    public boolean hasPlayer(String playerId)
+    {
+        return (p1 != null && p1.id.equals(playerId)) || (p2 != null && p2.id.equals(playerId));
+    }
+
 }
 
-public void addSecondPlayer(String secondPlayerId)
-{
-    if ( this.p2 != null)
-    {
-        throw new IllegalStateException("Second player already set");
-    }
-    if (this.p1 != null && this.p1.id.equals(secondPlayerId))
-    {
-        throw new IllegalStateException("Same player cannot join twice");
-    }
-    this.p2 = new Player(secondPlayerId, 'Y');
-}
-
-public boolean hasPlayer(String playerId)
-{
-    return (p1 != null && p1.id.equals(playerId)) || (p2 != null && p2.id.equals(playerId));
-}
 
 
 
