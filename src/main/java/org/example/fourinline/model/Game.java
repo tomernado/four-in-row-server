@@ -56,7 +56,7 @@ public class Game
 
      this.p2 = new Player(secondPlayerId, 'Y');
      this.status =GameStatus.IN_PROGRESS;
-
+     this.nextTurn = 'Y';
 
     }
 

@@ -22,5 +22,4 @@ public class Create extends HttpServlet
         resp.setContentType("text/plain;charset=UTF-8");
         resp.getWriter().println(ok?"ok":"failed");
     }
-
 }

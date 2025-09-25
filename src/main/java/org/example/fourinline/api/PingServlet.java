@@ -5,12 +5,10 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 
 @WebServlet("/api/ping")
-public class PingServlet extends HttpServlet
-{
+public class PingServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException
-    {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.setContentType("text/plain; charset=UTF-8");
 
         String msg = req.getParameter("msg");
@@ -24,9 +22,8 @@ public class PingServlet extends HttpServlet
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException
-    {
-
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        // לאפשר גם POST לאותה התנהגות
         doGet(req, resp);
     }
 }

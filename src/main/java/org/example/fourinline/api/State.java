@@ -19,15 +19,17 @@ public class State extends HttpServlet
         String code = req.getParameter("code");
         String playerId = req.getParameter("playerId");
 
-//        resp.setContentType("text/plain;charset=UTF-8"); return;
+        resp.setContentType("text/plain;charset=UTF-8");
 
         if (code ==null || code.isBlank())
         {
             resp.getWriter().println("Invalid code"); return;
         }
-
+        if (playerId == null  || playerId.isBlank())
+        {
+            resp.getWriter().println("Invalid playerId"); return;
+        }
         GameSnapshot snap = GameManager.get().getSnapshot(code,playerId);
-        resp.setContentType("text/plain;charset=UTF-8");
         resp.getWriter().println(snap.toPlainText());
 
     }

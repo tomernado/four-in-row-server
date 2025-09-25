@@ -15,21 +15,15 @@ public class Join extends HttpServlet
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException
     {
-        String code = req.getParameter("code");
-        String playerId = req.getParameter("playerId");
+//        String code = req.getParameter("code");
+//        String playetId = req.getParameter("playetId");
+//
+//        boolean ok = GameManager.get().joinGame(code,playetId);
+//
+//        resp.setContentType("text/plain;charset=UTF-8");
+//        resp.getWriter().write(ok?"OK":code);
+        resp.getWriter().write(ok?"OK":code);
 
-        if (code == null || code.isEmpty() || playerId == null || playerId.isEmpty())
-        {
-            resp.setStatus(400);
-            resp.setContentType("text/plain;charset=UTF-8");
-            resp.getWriter().write("FAIL: missing params");
-            return;
-        }
-
-        boolean ok = GameManager.get().joinGame(code,playerId);
-
-        resp.setContentType("text/plain;charset=UTF-8");
-        resp.getWriter().write(ok?"OK":"FAIL");
     }
 
 }
