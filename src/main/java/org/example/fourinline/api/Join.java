@@ -15,14 +15,14 @@ public class Join extends HttpServlet
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException
     {
-//        String code = req.getParameter("code");
-//        String playetId = req.getParameter("playetId");
-//
-//        boolean ok = GameManager.get().joinGame(code,playetId);
-//
-//        resp.setContentType("text/plain;charset=UTF-8");
-//        resp.getWriter().write(ok?"OK":code);
+        String code = req.getParameter("code");
+        String playetId = req.getParameter("playetId");
+
+        boolean ok = GameManager.get().joinGame(code,playetId);
+
+        resp.setContentType("text/plain;charset=UTF-8");
         resp.getWriter().write(ok?"OK":code);
+
 
     }
 
