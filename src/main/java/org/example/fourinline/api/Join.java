@@ -15,9 +15,17 @@ public class Join extends HttpServlet
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException
     {
         String code = req.getParameter("code");
-        String playetId = req.getParameter("playetId");
+        String playerId = req.getParameter("playerId");
 
-        boolean ok = GameManager.get().joinGame(code,playetId);
+        if (code == null || code.isEmpty() || playerId == null || playerId.isEmpty())
+        {
+            resp.setStatus(400);
+            resp.setContentType("text/plain;charset=UTF-8");
+            resp.getWriter().write("FAIL: missing params");
+            return;
+        }
+
+        boolean ok = GameManager.get().joinGame(code,playerId);
 
         resp.setContentType("text/plain;charset=UTF-8");
         resp.getWriter().write(ok?"OK":"FAIL");
